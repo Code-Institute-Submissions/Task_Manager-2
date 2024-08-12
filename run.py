@@ -9,3 +9,7 @@ class ToDoList:
     def add_task(self, task):
         """Adds a new task to the tasks list."""
         self.tasks.append({"task": task, "completed": False})
+
+    def get_tasks(self):
+        """Returns the list of tasks."""
+        return self.tasks
