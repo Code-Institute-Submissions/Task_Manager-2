@@ -31,3 +31,7 @@ if __name__ == "__main__":
     todo.add_task("Buy groceries")
     todo.add_task("Read a book")
     print(todo.get_tasks())  # Test that tasks are added
+
+    # Complete a task and print the list again
+    todo.complete_task(1)
+    print(todo.get_tasks())  # Test that the task is marked as completed
