@@ -50,4 +50,13 @@ def save_tasks(todo, filename="tasks.json"):
 
 def load_tasks(todo, filename="tasks.json"):
     """Loads tasks from a file and adds them to the ToDoList instance."""
+    try:
+        with open(filename, "r") as file:
+            tasks = json.load(file)
+            for task in tasks:
+                todo.add_task(task['task'])
+                if task['completed']:
+                    todo.complete_task(len(todo.get_tasks()))
+    except FileNotFoundError:
+        print("No saved tasks found. Starting fresh.")
 
