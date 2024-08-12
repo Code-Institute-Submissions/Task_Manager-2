@@ -35,3 +35,7 @@ if __name__ == "__main__":
     # Complete a task and print the list again
     todo.complete_task(1)
     print(todo.get_tasks())  # Test that the task is marked as completed
+
+    # Delete a task and print the list again
+    todo.delete_task(2)
+    print(todo.get_tasks())  # Test that the task is deleted
