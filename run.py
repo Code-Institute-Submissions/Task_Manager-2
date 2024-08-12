@@ -43,3 +43,8 @@ if __name__ == "__main__":
 
 import json  # Import the JSON module to handle data storage
 
+def save_tasks(todo, filename="tasks.json"):
+    """Saves the current list of tasks to a file in JSON format."""
+    with open(filename, "w") as file:
+        json.dump(todo.get_tasks(), file)
+
