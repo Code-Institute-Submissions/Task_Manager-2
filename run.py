@@ -48,3 +48,6 @@ def save_tasks(todo, filename="tasks.json"):
     with open(filename, "w") as file:
         json.dump(todo.get_tasks(), file)
 
+def load_tasks(todo, filename="tasks.json"):
+    """Loads tasks from a file and adds them to the ToDoList instance."""
+
