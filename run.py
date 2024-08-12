@@ -5,7 +5,6 @@ class ToDoList:
         """Initializes an empty list to store tasks."""
         self.tasks = []
 
-
     def add_task(self, task):
         """Adds a new task to the tasks list."""
         self.tasks.append({"task": task, "completed": False})
@@ -23,3 +22,7 @@ class ToDoList:
         """Deletes a task from the tasks list."""
         if 0 < task_number <= len(self.tasks):
             del self.tasks[task_number - 1]
+
+if __name__ == "__main__":
+    # Create an instance of ToDoList
+    todo = ToDoList()
