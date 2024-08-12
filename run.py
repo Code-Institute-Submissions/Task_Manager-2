@@ -13,3 +13,8 @@ class ToDoList:
     def get_tasks(self):
         """Returns the list of tasks."""
         return self.tasks
+
+    def complete_task(self, task_number):
+        """Marks a task as completed by setting its 'completed' status to True."""
+        if 0 < task_number <= len(self.tasks):
+            self.tasks[task_number - 1]["completed"] = True
