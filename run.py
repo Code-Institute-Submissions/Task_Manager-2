@@ -39,3 +39,7 @@ if __name__ == "__main__":
     # Delete a task and print the list again
     todo.delete_task(2)
     print(todo.get_tasks())  # Test that the task is deleted
+
+
+import json  # Import the JSON module to handle data storage
+
