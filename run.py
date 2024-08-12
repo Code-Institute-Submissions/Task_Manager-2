@@ -18,3 +18,8 @@ class ToDoList:
         """Marks a task as completed by setting its 'completed' status to True."""
         if 0 < task_number <= len(self.tasks):
             self.tasks[task_number - 1]["completed"] = True
+
+    def delete_task(self, task_number):
+        """Deletes a task from the tasks list."""
+        if 0 < task_number <= len(self.tasks):
+            del self.tasks[task_number - 1]
