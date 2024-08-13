@@ -1,8 +1,9 @@
 import json  # Import the JSON module to handle data storage
 
+
 class ToDoList:
     """Manages the To-Do List."""
-    
+
     def __init__(self):
         """Initializes an empty list to store tasks."""
         self.tasks = []
@@ -16,7 +17,8 @@ class ToDoList:
         return self.tasks
 
     def complete_task(self, task_number):
-        """Marks a task as completed by setting its 'completed' status to True."""
+        """Marks a task as completed by setting its
+        'completed' status to True."""
         if 0 < task_number <= len(self.tasks):
             self.tasks[task_number - 1]["completed"] = True
 
@@ -30,6 +32,7 @@ def save_tasks(todo, filename="tasks.json"):
     """Saves the current list of tasks to a file in JSON format."""
     with open(filename, "w") as file:
         json.dump(todo.get_tasks(), file)
+
 
 def load_tasks(todo, filename="tasks.json"):
     """Loads tasks from a file and adds them to the ToDoList instance."""
@@ -51,29 +54,34 @@ def display_tasks(todo):
         status = "Done" if task["completed"] else "Pending"
         print(f"{index}. {task['task']} [{status}]")
 
+
 def add_new_task(todo):
     """Prompts the user to add a new task."""
-    task = input("Enter a new task: ")
+    task = input("Enter a new task:\n")
     todo.add_task(task)
     print("Task added!")
+
 
 def mark_task_as_completed(todo):
     """Prompts the user to select a task to mark as completed."""
     try:
-        task_number = int(input("Enter the task number to mark as completed: "))
+        task_number = int(input("Enter the task number "
+                                "to mark as completed:Steps for deployment:\n"))
         todo.complete_task(task_number)
         print("Task marked as completed!")
     except ValueError:
         print("Invalid input. Please enter a valid task number.")
 
+
 def remove_task(todo):
     """Prompts the user to select a task to delete."""
     try:
-        task_number = int(input("Enter the task number to delete: "))
+        task_number = int(input("Enter the task number to delete:\n"))
         todo.delete_task(task_number)
         print("Task deleted!")
     except ValueError:
         print("Invalid input. Please enter a valid task number.")
+
 
 def display_menu():
     """Displays the menu options to the user."""
@@ -92,7 +100,7 @@ def main():
 
     while True:
         display_menu()
-        choice = input("Choose an option: ")
+        choice = input("Choose an option:\n")
 
         if choice == "1":
             display_tasks(todo)
@@ -112,5 +120,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
+    
