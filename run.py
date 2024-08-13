@@ -1,6 +1,8 @@
+import json  # Import the JSON module to handle data storage
+
 class ToDoList:
     """Manages the To-Do List."""
-
+    
     def __init__(self):
         """Initializes an empty list to store tasks."""
         self.tasks = []
@@ -23,25 +25,6 @@ class ToDoList:
         if 0 < task_number <= len(self.tasks):
             del self.tasks[task_number - 1]
 
-if __name__ == "__main__":
-    # Create an instance of ToDoList
-    todo = ToDoList()
-
-    # Add tasks and print the list to verify
-    todo.add_task("Buy groceries")
-    todo.add_task("Read a book")
-    print(todo.get_tasks())  # Test that tasks are added
-
-    # Complete a task and print the list again
-    todo.complete_task(1)
-    print(todo.get_tasks())  # Test that the task is marked as completed
-
-    # Delete a task and print the list again
-    todo.delete_task(2)
-    print(todo.get_tasks())  # Test that the task is deleted
-
-
-import json  # Import the JSON module to handle data storage
 
 def save_tasks(todo, filename="tasks.json"):
     """Saves the current list of tasks to a file in JSON format."""
@@ -60,20 +43,6 @@ def load_tasks(todo, filename="tasks.json"):
     except FileNotFoundError:
         print("No saved tasks found. Starting fresh.")
 
-if __name__ == "__main__":
-    todo = ToDoList()
-    load_tasks(todo)
-
-    # Add tasks, complete one, delete one, then save
-    todo.add_task("Buy groceries")
-    todo.add_task("Read a book")
-    todo.complete_task(1)
-    save_tasks(todo)  # Save current state
-
-    # Load tasks to verify persistence
-    todo = ToDoList()  # Start fresh
-    load_tasks(todo)
-    print(todo.get_tasks())  # Check that saved tasks are loaded correctly
 
 def display_tasks(todo):
     """Displays all tasks with their status (Pending or Done)."""
@@ -106,25 +75,42 @@ def remove_task(todo):
     except ValueError:
         print("Invalid input. Please enter a valid task number.")
 
-if __name__ == "__main__":
-    todo = ToDoList()
-    load_tasks(todo)
+def display_menu():
+    """Displays the menu options to the user."""
+    print("\nTo-Do List Manager")
+    print("1. View all tasks")
+    print("2. Add a new task")
+    print("3. Complete a task")
+    print("4. Remove a task")
+    print("5. Save and exit")
+
+
+def main():
+    """Main function to run the To-Do List application."""
+    todo = ToDoList()  # Create an instance of ToDoList
+    load_tasks(todo)  # Load tasks from file if available
 
     while True:
-        display_tasks(todo)
-        print("\nOptions: 1) Add task 2) Complete task 3) Delete task 4) Exit")
+        display_menu()
         choice = input("Choose an option: ")
 
         if choice == "1":
-            add_new_task(todo)
+            display_tasks(todo)
         elif choice == "2":
-            mark_task_as_completed(todo)
+            add_new_task(todo)
         elif choice == "3":
-            remove_task(todo)
+            mark_task_as_completed(todo)
         elif choice == "4":
-            save_tasks(todo)  # Save tasks before exiting
+            remove_task(todo)
+        elif choice == "5":
+            save_tasks(todo)  # Save tasks to file before exiting
             print("Goodbye!")
             break
         else:
             print("Invalid choice. Please try again.")
+
+
+if __name__ == "__main__":
+    main()
+
 
