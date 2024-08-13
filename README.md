@@ -100,6 +100,6 @@ User Experience: The application provides clear instructions and feedback to the
 - Due Dates: Allow users to assign due dates to tasks and notify them of upcoming deadlines.
 - Recurring Tasks: Support for recurring tasks that reset after a certain period.
 
-Acknowledgments
+## Acknowledgments
 Special thanks to the Code Institute for providing the framework and guidelines for this project.
 Inspiration for this project was drawn from various task management tools, as well as the Love Sandwhich Project.
