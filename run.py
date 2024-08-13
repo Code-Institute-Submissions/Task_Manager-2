@@ -82,3 +82,9 @@ def display_tasks(todo):
         status = "Done" if task["completed"] else "Pending"
         print(f"{index}. {task['task']} [{status}]")
 
+def add_new_task(todo):
+    """Prompts the user to add a new task."""
+    task = input("Enter a new task: ")
+    todo.add_task(task)
+    print("Task added!")
+
