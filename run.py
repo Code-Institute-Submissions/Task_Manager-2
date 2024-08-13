@@ -106,3 +106,25 @@ def remove_task(todo):
     except ValueError:
         print("Invalid input. Please enter a valid task number.")
 
+if __name__ == "__main__":
+    todo = ToDoList()
+    load_tasks(todo)
+
+    while True:
+        display_tasks(todo)
+        print("\nOptions: 1) Add task 2) Complete task 3) Delete task 4) Exit")
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            add_new_task(todo)
+        elif choice == "2":
+            mark_task_as_completed(todo)
+        elif choice == "3":
+            remove_task(todo)
+        elif choice == "4":
+            save_tasks(todo)  # Save tasks before exiting
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
