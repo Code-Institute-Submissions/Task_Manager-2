@@ -60,3 +60,20 @@ def load_tasks(todo, filename="tasks.json"):
     except FileNotFoundError:
         print("No saved tasks found. Starting fresh.")
 
+if __name__ == "__main__":
+    todo = ToDoList()
+    load_tasks(todo)
+
+    # Add tasks, complete one, delete one, then save
+    todo.add_task("Buy groceries")
+    todo.add_task("Read a book")
+    todo.complete_task(1)
+    save_tasks(todo)  # Save current state
+
+    # Load tasks to verify persistence
+    todo = ToDoList()  # Start fresh
+    load_tasks(todo)
+    print(todo.get_tasks())  # Check that saved tasks are loaded correctly
+
+    
+
