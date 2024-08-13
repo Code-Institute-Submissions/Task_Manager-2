@@ -88,3 +88,12 @@ def add_new_task(todo):
     todo.add_task(task)
     print("Task added!")
 
+def mark_task_as_completed(todo):
+    """Prompts the user to select a task to mark as completed."""
+    try:
+        task_number = int(input("Enter the task number to mark as completed: "))
+        todo.complete_task(task_number)
+        print("Task marked as completed!")
+    except ValueError:
+        print("Invalid input. Please enter a valid task number.")
+
