@@ -97,3 +97,12 @@ def mark_task_as_completed(todo):
     except ValueError:
         print("Invalid input. Please enter a valid task number.")
 
+def remove_task(todo):
+    """Prompts the user to select a task to delete."""
+    try:
+        task_number = int(input("Enter the task number to delete: "))
+        todo.delete_task(task_number)
+        print("Task deleted!")
+    except ValueError:
+        print("Invalid input. Please enter a valid task number.")
+
