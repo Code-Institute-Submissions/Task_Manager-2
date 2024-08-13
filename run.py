@@ -75,5 +75,10 @@ if __name__ == "__main__":
     load_tasks(todo)
     print(todo.get_tasks())  # Check that saved tasks are loaded correctly
 
-    
+def display_tasks(todo):
+    """Displays all tasks with their status (Pending or Done)."""
+    tasks = todo.get_tasks()
+    for index, task in enumerate(tasks, start=1):
+        status = "Done" if task["completed"] else "Pending"
+        print(f"{index}. {task['task']} [{status}]")
 
